@@ -20,5 +20,20 @@ CREATE TABLE mascota
         id_raza NUMBER (3) CONSTRAINT FK_RAZA_ID
                 REFERENCES raza(id_raza)
         
-        
 );
+--------------------------------------
+------- INSERTAR FILAS EN TABLAS -----
+INSERT INTO raza (id_raza, nombre)
+VALUES (1, 'chow how');
+
+INSERT INTO raza 
+VALUES (2, 'iggy');
+
+INSERT INTO raza VALUES (3, 'golden retryber');
+
+-----AGREGAR UNA MASCOTA ------------
+INSERT INTO pet ( nombre,fecha_ingreso, cant_pulgas,id_raza)
+VALUES ('KUCHAU','01/06/23', 100,2)
+
+INSERT INTO pet ( nombre,fecha_ingreso, cant_pulgas,id_raza)
+VALUES ('CAMILO','02/06/23', 300,2)
