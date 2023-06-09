@@ -1,0 +1,24 @@
+CREATE TABLE raza
+(
+        id_raza NUMBER (3) CONSTRAINT PK_RAZA_ID PRIMARY KEY,
+        nombre VARCHAR2 (30) CONSTRAINT NN_RAZA_NOMBRE NOT NULL
+);
+CREATE TABLE mascota
+(
+        id_mascota NUMBER(3)
+                   GENERATED ALWAYS AS IDENTITY
+                   MINVALUE 1
+                   MAXVALUE 999
+                   START WITH 1
+                   INCREMENT BY 1
+                   CONSTRAINT PK_MASCOTA_ID PRIMARY KEY,
+        nombre VARCHAR2(30)
+               CONSTRAINT NN_MASCOTA_NOMBRE NOT NULL,
+        fecha_ingreso DATE NOT NULL,
+        cant_pulgas NUMBER(3) CONSTRAINT CK_MASCOTA_CANT_PULGAS CHECK (cant_pulgas <=500),
+        
+        id_raza NUMBER (3) CONSTRAINT FK_RAZA_ID
+                REFERENCES raza(id_raza)
+        
+        
+);
